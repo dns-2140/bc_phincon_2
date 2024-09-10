@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>toggling lampu</h1>
+      <img id="img" src="lampu-nyala.png" alt="" />
+      <button id="btn">Matikan lampu</button>
+    </div>
+
+    <script>
+      const btn = document.getElementById('btn');
+      const img = document.getElementById('img');
+      let lampu = true;
+      btn.addEventListener('click', switchImg);
+
+      function switchImg() {
+        if (lampu) {
+          img.setAttribute('src', 'lampu-mati.png');
+          btn.innerHTML = 'nyalakan lampu';
+          lampu = !lampu;
+        } else {
+          img.setAttribute('src', 'lampu-nyala.png');
+          btn.innerHTML = 'Matikan Lampu';
+          lampu = !lampu;
+        }
+      }
+
+      console.log(btn);
+    </script>
+  </body>
+</html>

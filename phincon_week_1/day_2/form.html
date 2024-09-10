@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css" />
+  </head>
+  <body>
+    <div class="container">
+        <label for="name">Nama Siswa</label><br>
+        <input type="text" id="name" required /><br>
+        <label for="name">Kelas</label><br>
+        <input type="text" id="kelas" required /><br>
+        <p>Jenis Kelamin</p>
+        <input type="radio" id="kelamin" name="kelamin" value="Laki-laki">
+        <label for="kelamin">Laki-laki</label>
+        <input type="radio" id="kelamin" name="kelamin" value="Perempuan">
+        <label for="kelamin">Perempuan</label><br>
+        <label for="start">Tanggal lahir</label><br>
+        <input type="date" id="tanggal-lahir" name="tanggal-lahir" value="2018-07-22" min="1950-01-01" max="2018-12-31" /><br>
+        <p>pendidikan terakhir</p>
+        <input list="pendidikan" id="educ">
+        <datalist id="pendidikan">
+          <option value="S2">
+          <option value="S1">
+          <option value="D4">
+          <option value="D3">
+          <option value="SMA">
+        </datalist> <br>
+      <label for="jurusan">Jurusan</label><br>
+      <input type="text" id="jurusan" required /><br>
+      <button id="btn">submit</button>
+      </form>
+    </div>
+
+    <table id="table">
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Kelas</th>
+          <th>Jumlah Kelamin</th>
+          <th>Tanggal Lahir</th>
+          <th>Pendidikan Terakhir</th>
+          <th>Jurusan</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+
+  </body>
+  <script>
+    const data = {
+    }
+    const btn = document.getElementById("btn");
+    const formNama = document.getElementById("name");
+    const formKelas = document.getElementById("kelas");
+    formNama.addEventListener("input", e => {
+      data["name"] = e.target.value
+    })
+    formKelas.addEventListener("input", e => {
+      data["kelas"] =e.target.value
+    })
+    const radioButton = document.getElementsByName("kelamin");
+    for(let i = 0; i < radioButton.length; i++){
+      radioButton[i].addEventListener("click", () => {
+      for(let i = 0; i < radioButton.length; i++){
+      if(radioButton[i].checked) {
+        data["kelamin"] = radioButton[i].value
+      }
+      }
+    })
+    }
+
+    const calendar = document.getElementById("tanggal-lahir");
+    console.log(calendar.value);
+    calendar.addEventListener("input", (e) => {
+      data["tanggal_lahir"] = calendar.value
+    })
+    
+    const pendidikan = document.getElementById("educ");
+    pendidikan.addEventListener("input", () => {
+      data["pendidikan"] = pendidikan.value;
+    })
+    
+    const jurusan = document.getElementById("jurusan");
+    jurusan.addEventListener("input", () => {
+      data["jurusan"] = jurusan.value
+    })
+    
+   
+    
+    
+
+    
+
+    const insertRow = (data) => {
+  document.querySelector(`#table tbody`).insertAdjacentHTML(
+      'beforeend',
+      `<tr>
+        <td>${data.name}</td>
+        <td>${data.kelas}</td>
+        <td>${data.kelamin}</td>
+        <td>${data.tanggal_lahir}</td>
+        <td>${data.pendidikan}</td>
+        <td>${data.jurusan}</td>
+  </tr>`
+    );
+  };
+  const onClick = () => {
+      insertRow(data);
+    }
+    btn.addEventListener("click", onClick);
+  </script>
+</html>
