@@ -242,3 +242,40 @@ reset.addEventListener('click', () => {
   }
   console.log(state);
 });
+
+const theme = [
+  {
+    backgroundColor: '#E6E6E6',
+    headerFontColor: '#32302d',
+    resBgColor: '#fff',
+    allButtonBgColor: '#d4cece',
+    buttonBgColor: '#e4e2df',
+    delResBgColor: '#64b4bd',
+    delResFontCOlor: '#fff',
+  },
+];
+
+const body = document.getElementById('body');
+const header = document.getElementById('header');
+const resContainer = document.getElementById('res-container');
+const allButtonContainer = document.getElementById('allButtonContainer');
+// const primaryButtons = document.querySelectorAll('.primaryColorButton');
+// console.log(primaryButtons);
+// console.log(primaryButtons[0].style);
+
+const theme2 = document.getElementById('theme2');
+theme2.addEventListener('click', () => {
+  body.style.backgroundColor = theme[0].backgroundColor;
+  header.style.color = theme[0].headerFontColor;
+  resContainer.style.backgroundColor = theme[0].resBgColor;
+  resContainer.style.color = theme[0].headerFontColor;
+  // primaryButtons.forEach((e) => {
+  //   e.style.backgroundColor = theme[0].buttonBgColor;
+  // });
+  allButtonContainer.style.backgroundColor = theme[0].allButtonBgColor;
+  console.log(del.style.color);
+  del.style.color = theme[0].delResFontCOlor;
+  del.style.backgroundColor = theme[0].delResBgColor;
+  reset.style.color = theme[0].delResFontCOlor;
+  reset.style.backgroundColor = theme[0].delResBgColor;
+});
