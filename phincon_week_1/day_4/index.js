@@ -265,6 +265,16 @@ const theme = [
     delResFontCOlor: '#fff',
     equalBgColor: '#fa8e42',
   },
+  {
+    backgroundColor: 'hsl(268, 75%, 9%)',
+    headerFontColor: '#32302d',
+    resBgColor: '#fff',
+    allButtonBgColor: 'hsl(268, 71%, 12%)',
+    buttonBgColor: '#e4e2df',
+    delResBgColor: '#64b4bd',
+    delResFontCOlor: '#fff',
+    equalBgColor: '#fa8e42',
+  },
 ];
 
 const body = document.getElementById('body');
@@ -300,4 +310,23 @@ theme2.addEventListener('click', () => {
   reset.style.color = theme[1].delResFontCOlor;
   reset.style.backgroundColor = theme[1].delResBgColor;
   equal.style.backgroundColor = theme[1].equalBgColor;
+});
+
+const themeSetter = (num) => {
+  body.style.backgroundColor = theme[num].backgroundColor;
+  header.style.color = theme[num].headerFontColor;
+  resContainer.style.backgroundColor = theme[num].resBgColor;
+  resContainer.style.color = theme[num].headerFontColor;
+  allButtonContainer.style.backgroundColor = theme[num].allButtonBgColor;
+  console.log(del.style.color);
+  del.style.color = theme[num].delResFontCOlor;
+  del.style.backgroundColor = theme[num].delResBgColor;
+  reset.style.color = theme[num].delResFontCOlor;
+  reset.style.backgroundColor = theme[num].delResBgColor;
+  equal.style.backgroundColor = theme[num].equalBgColor;
+};
+
+const theme3 = document.getElementById('theme3');
+theme3.addEventListener('click', () => {
+  themeSetter(2);
 });
