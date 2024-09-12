@@ -15,6 +15,7 @@ const subtraction = document.getElementById('subtraction');
 const division = document.getElementById('division');
 const multiplication = document.getElementById('multiplication');
 const equal = document.getElementById('equal');
+const reset = document.getElementById('reset');
 
 let state = '';
 if (state) {
@@ -245,6 +246,16 @@ reset.addEventListener('click', () => {
 
 const theme = [
   {
+    backgroundColor: '#3a4664',
+    headerFontColor: 'white',
+    resBgColor: '#181f33',
+    allButtonBgColor: '#181f33',
+    buttonBgColor: '#eae3dc',
+    delResBgColor: '#a4b3e0',
+    delResFontCOlor: '#fff',
+    equalBgColor: '#f96b5f',
+  },
+  {
     backgroundColor: '#E6E6E6',
     headerFontColor: '#32302d',
     resBgColor: '#fff',
@@ -252,6 +263,7 @@ const theme = [
     buttonBgColor: '#e4e2df',
     delResBgColor: '#64b4bd',
     delResFontCOlor: '#fff',
+    equalBgColor: '#fa8e42',
   },
 ];
 
@@ -259,23 +271,33 @@ const body = document.getElementById('body');
 const header = document.getElementById('header');
 const resContainer = document.getElementById('res-container');
 const allButtonContainer = document.getElementById('allButtonContainer');
-// const primaryButtons = document.querySelectorAll('.primaryColorButton');
-// console.log(primaryButtons);
-// console.log(primaryButtons[0].style);
 
-const theme2 = document.getElementById('theme2');
-theme2.addEventListener('click', () => {
+const theme1 = document.getElementById('theme1');
+theme1.addEventListener('click', () => {
   body.style.backgroundColor = theme[0].backgroundColor;
   header.style.color = theme[0].headerFontColor;
   resContainer.style.backgroundColor = theme[0].resBgColor;
   resContainer.style.color = theme[0].headerFontColor;
-  // primaryButtons.forEach((e) => {
-  //   e.style.backgroundColor = theme[0].buttonBgColor;
-  // });
   allButtonContainer.style.backgroundColor = theme[0].allButtonBgColor;
   console.log(del.style.color);
   del.style.color = theme[0].delResFontCOlor;
   del.style.backgroundColor = theme[0].delResBgColor;
   reset.style.color = theme[0].delResFontCOlor;
   reset.style.backgroundColor = theme[0].delResBgColor;
+  equal.style.backgroundColor = theme[0].equalBgColor;
+});
+
+const theme2 = document.getElementById('theme2');
+theme2.addEventListener('click', () => {
+  body.style.backgroundColor = theme[1].backgroundColor;
+  header.style.color = theme[1].headerFontColor;
+  resContainer.style.backgroundColor = theme[1].resBgColor;
+  resContainer.style.color = theme[1].headerFontColor;
+  allButtonContainer.style.backgroundColor = theme[1].allButtonBgColor;
+  console.log(del.style.color);
+  del.style.color = theme[1].delResFontCOlor;
+  del.style.backgroundColor = theme[1].delResBgColor;
+  reset.style.color = theme[1].delResFontCOlor;
+  reset.style.backgroundColor = theme[1].delResBgColor;
+  equal.style.backgroundColor = theme[1].equalBgColor;
 });
