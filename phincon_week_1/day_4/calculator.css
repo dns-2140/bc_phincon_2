@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.calculator {
+  width: 30%;
+  margin: auto;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+}
