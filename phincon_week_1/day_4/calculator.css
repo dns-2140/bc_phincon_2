@@ -1,13 +1,64 @@
+:root {
+  /* default-theme: 1 */
+  --background-color: hsl(222, 26%, 31%);
+  --toggle-background: hsl(223, 31%, 20%);
+  --screen-background: hsl(224, 36%, 15%);
+  --screen-text: #fff;
+
+  --key-background: hsl(225, 21%, 49%);
+  --key-shadow: hsl(224, 28%, 35%);
+
+  --equal-button: hsl(6, 63%, 50%);
+  --equal-shadow: hsl(6, 70%, 34%);
+
+  --num-button: hsl(30, 25%, 89%);
+  --num-shadow: hsl(28, 16%, 65%);
+  --num-text: hsl(221, 14%, 31%);
+}
+
+[data-theme='2'] {
+  --background-color: hsl(0, 0%, 90%);
+  --toggle-background: hsl(0, 5%, 81%);
+  --screen-background: hsl(0, 0%, 93%);
+  --screen-text: hsl(60, 10%, 19%);
+
+  --key-background: hsl(185, 42%, 37%);
+  --key-shadow: hsl(185, 58%, 25%);
+
+  --equal-button: hsl(25, 98%, 40%);
+  --equal-shadow: hsl(25, 99%, 27%);
+
+  --num-button: hsl(45, 7%, 89%);
+  --num-shadow: hsl(35, 11%, 61%);
+  --num-text: hsl(60, 10%, 19%);
+}
+
+[data-theme='3'] {
+  --background-color: hsl(268, 75%, 9%);
+  --toggle-background: hsl(268, 71%, 12%);
+  --screen-background: hsl(268, 71%, 12%);
+
+  --key-background: hsl(281, 89%, 26%);
+  --key-shadow: hsl(285, 91%, 52%);
+
+  --equal-button: hsl(176, 100%, 44%);
+  --equal-shadow: hsl(177, 92%, 70%);
+
+  --num-button: hsl(268, 47%, 21%);
+  --num-shadow: hsl(290, 70%, 36%);
+  --num-text: hsl(52, 100%, 62%);
+}
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: #3a4664;
-  text-transform: uppercase;
+  background-color: var(--background-color);
   font-weight: bold;
+  font-family: 'League Spartan', sans-serif;
 }
 
 .calculator {
@@ -20,15 +71,15 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: var(--screen-text);
   font-size: 24px;
 }
 
 .res-container {
   display: flex;
   justify-content: flex-end;
-  background-color: #181f33;
-  color: white;
+  background-color: var(--screen-background);
+  color: var(--screen-text);
   width: 100%;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -37,8 +88,9 @@ body {
 }
 
 .allButtonContainer {
-  background-color: #181f33;
+  background-color: var(--toggle-background);
   padding: 20px;
+  text-transform: uppercase;
 }
 
 .buttonContainer {
@@ -53,8 +105,8 @@ body {
 
 .buttonContainer div {
   width: 20%;
-  background-color: #eae3dc;
-  color: #181f33;
+  background-color: var(--num-button);
+  color: var(--num-text);
   text-align: center;
   padding: 10px;
 }
@@ -66,10 +118,19 @@ body {
 #del,
 #reset {
   color: white;
-  background-color: #a4b3e0;
+  background-color: var(--key-background);
 }
 
 #equal {
-  background-color: #f96b5f;
+  background-color: var(--equal-button);
   color: white;
+}
+
+@media (max-width: 375px) {
+  /* Styles for devices with a width of 375px or less */
+  .calculator {
+    padding: 10px;
+    width: 90%;
+    margin: auto;
+  }
 }

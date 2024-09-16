@@ -1,3 +1,18 @@
+const pageThemes = [1, 2, 3];
+
+const button1 = document.getElementById('theme1');
+const button2 = document.getElementById('theme2');
+const button3 = document.getElementById('theme3');
+button2.addEventListener('click', () => {
+  document.documentElement.setAttribute('data-theme', 2);
+});
+button3.addEventListener('click', () => {
+  document.documentElement.setAttribute('data-theme', 3);
+});
+button1.addEventListener('click', () => {
+  document.documentElement.removeAttribute('data-theme');
+});
+
 const num7 = document.getElementById('num7');
 const num1 = document.getElementById('num1');
 const num2 = document.getElementById('num2');
@@ -242,91 +257,4 @@ reset.addEventListener('click', () => {
     displayNumber.textContent = '0';
   }
   console.log(state);
-});
-
-const theme = [
-  {
-    backgroundColor: '#3a4664',
-    headerFontColor: 'white',
-    resBgColor: '#181f33',
-    allButtonBgColor: '#181f33',
-    buttonBgColor: '#eae3dc',
-    delResBgColor: '#a4b3e0',
-    delResFontCOlor: '#fff',
-    equalBgColor: '#f96b5f',
-  },
-  {
-    backgroundColor: '#E6E6E6',
-    headerFontColor: '#32302d',
-    resBgColor: '#fff',
-    allButtonBgColor: '#d4cece',
-    buttonBgColor: '#e4e2df',
-    delResBgColor: '#64b4bd',
-    delResFontCOlor: '#fff',
-    equalBgColor: '#fa8e42',
-  },
-  {
-    backgroundColor: 'hsl(268, 75%, 9%)',
-    headerFontColor: '#32302d',
-    resBgColor: '#fff',
-    allButtonBgColor: 'hsl(268, 71%, 12%)',
-    buttonBgColor: '#e4e2df',
-    delResBgColor: '#64b4bd',
-    delResFontCOlor: '#fff',
-    equalBgColor: '#fa8e42',
-  },
-];
-
-const body = document.getElementById('body');
-const header = document.getElementById('header');
-const resContainer = document.getElementById('res-container');
-const allButtonContainer = document.getElementById('allButtonContainer');
-
-const theme1 = document.getElementById('theme1');
-theme1.addEventListener('click', () => {
-  body.style.backgroundColor = theme[0].backgroundColor;
-  header.style.color = theme[0].headerFontColor;
-  resContainer.style.backgroundColor = theme[0].resBgColor;
-  resContainer.style.color = theme[0].headerFontColor;
-  allButtonContainer.style.backgroundColor = theme[0].allButtonBgColor;
-  console.log(del.style.color);
-  del.style.color = theme[0].delResFontCOlor;
-  del.style.backgroundColor = theme[0].delResBgColor;
-  reset.style.color = theme[0].delResFontCOlor;
-  reset.style.backgroundColor = theme[0].delResBgColor;
-  equal.style.backgroundColor = theme[0].equalBgColor;
-});
-
-const theme2 = document.getElementById('theme2');
-theme2.addEventListener('click', () => {
-  body.style.backgroundColor = theme[1].backgroundColor;
-  header.style.color = theme[1].headerFontColor;
-  resContainer.style.backgroundColor = theme[1].resBgColor;
-  resContainer.style.color = theme[1].headerFontColor;
-  allButtonContainer.style.backgroundColor = theme[1].allButtonBgColor;
-  console.log(del.style.color);
-  del.style.color = theme[1].delResFontCOlor;
-  del.style.backgroundColor = theme[1].delResBgColor;
-  reset.style.color = theme[1].delResFontCOlor;
-  reset.style.backgroundColor = theme[1].delResBgColor;
-  equal.style.backgroundColor = theme[1].equalBgColor;
-});
-
-const themeSetter = (num) => {
-  body.style.backgroundColor = theme[num].backgroundColor;
-  header.style.color = theme[num].headerFontColor;
-  resContainer.style.backgroundColor = theme[num].resBgColor;
-  resContainer.style.color = theme[num].headerFontColor;
-  allButtonContainer.style.backgroundColor = theme[num].allButtonBgColor;
-  console.log(del.style.color);
-  del.style.color = theme[num].delResFontCOlor;
-  del.style.backgroundColor = theme[num].delResBgColor;
-  reset.style.color = theme[num].delResFontCOlor;
-  reset.style.backgroundColor = theme[num].delResBgColor;
-  equal.style.backgroundColor = theme[num].equalBgColor;
-};
-
-const theme3 = document.getElementById('theme3');
-theme3.addEventListener('click', () => {
-  themeSetter(2);
 });
