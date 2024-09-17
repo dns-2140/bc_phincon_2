@@ -3,14 +3,14 @@ const pageThemes = [1, 2, 3];
 const button1 = document.getElementById('theme1');
 const button2 = document.getElementById('theme2');
 const button3 = document.getElementById('theme3');
+button1.addEventListener('click', () => {
+  document.documentElement.removeAttribute('data-theme');
+});
 button2.addEventListener('click', () => {
   document.documentElement.setAttribute('data-theme', 2);
 });
 button3.addEventListener('click', () => {
   document.documentElement.setAttribute('data-theme', 3);
-});
-button1.addEventListener('click', () => {
-  document.documentElement.removeAttribute('data-theme');
 });
 
 const num7 = document.getElementById('num7');
@@ -244,8 +244,12 @@ decimal.addEventListener('click', () => {
 });
 
 equal.addEventListener('click', () => {
-  const res = eval(state);
-  console.log(res);
+  let res;
+  if (Number.isInteger(eval(state))) {
+    res = eval(state);
+  } else {
+    res = eval(state).toFixed(2);
+  }
   displayNumber.textContent = res;
 });
 
@@ -258,3 +262,13 @@ reset.addEventListener('click', () => {
   }
   console.log(state);
 });
+
+//challenge
+const percentageButton = document.getElementById('percentage');
+percentageButton.addEventListener('click', () => {
+  // state = eval(state) / 100;
+  state = state + '/100';
+  displayNumber.textContent = state;
+  console.log(state);
+});
+console.log(percentageButton);
