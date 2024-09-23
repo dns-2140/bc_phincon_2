@@ -13,3 +13,7 @@
 #pokemon-cards * {
   width: 20%;
 }
+
+.currentPage {
+  background-color: aliceblue;
+}

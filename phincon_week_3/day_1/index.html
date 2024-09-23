@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="mydiv"></div>
+
+    <script type="text/babel">
+      function Calculator() {
+        const [numState, setState] = React.useState('');
+
+        function handleClickTheme1() {
+          document.documentElement.removeAttribute('data-theme');
+        }
+
+        function handleClickTheme2() {
+          document.documentElement.setAttribute('data-theme', 2);
+        }
+
+        function handleClickTheme3() {
+          document.documentElement.setAttribute('data-theme', 3);
+        }
+
+        function handleClick7() {
+          console.log(numState);
+          setState((prevState) => prevState + '7');
+        }
+        function handleClick1() {
+          console.log(numState);
+          setState((prevState) => prevState + '1');
+        }
+        function handleClick2() {
+          console.log(numState);
+          setState((prevState) => prevState + '2');
+        }
+        function handleClick3() {
+          console.log(numState);
+          setState((prevState) => prevState + '3');
+        }
+        function handleClick4() {
+          console.log(numState);
+          setState((prevState) => prevState + '4');
+        }
+        function handleClick5() {
+          console.log(numState);
+          setState((prevState) => prevState + '5');
+        }
+        function handleClick6() {
+          console.log(numState);
+          setState((prevState) => prevState + '6');
+        }
+        function handleClick8() {
+          console.log(numState);
+          setState((prevState) => prevState + '8');
+        }
+        function handleClick9() {
+          console.log(numState);
+          setState((prevState) => prevState + '9');
+        }
+        function handleClick0() {
+          console.log(numState);
+          setState((prevState) => prevState + '0');
+        }
+
+        function handleClickAdd() {
+          console.log(numState);
+          setState((prevState) => prevState + '+');
+        }
+
+        function handleClickSubtraction() {
+          console.log(numState);
+          setState((prevState) => prevState + '-');
+        }
+
+        function handleClickMultiply() {
+          console.log(numState);
+          setState((prevState) => prevState + '*');
+        }
+
+        function handleClickDivision() {
+          console.log(numState);
+          setState((prevState) => prevState + '/');
+        }
+
+        function handleClickRes() {
+          setState('');
+        }
+
+        function HandleClickDecimal() {
+          setState((prevState) => prevState + '.');
+        }
+
+        function HandleClickDel() {
+          setState((prevState) => prevState.slice(0, -1));
+        }
+
+        function handleClickEqual() {
+          // setState((prevState) => eval(prevState));
+          setState((prevState) => {
+            let res;
+            if (Number.isInteger(eval(prevState))) {
+              return eval(prevState);
+            } else {
+              return eval(prevState).toFixed(2);
+            }
+          });
+        }
+
+        return (
+          <>
+            <div className='calculator'>
+              <header id='header'>
+                <h3>calc</h3>
+                <div className='themeOption'>
+                  <div id='theme1' onClick={handleClickTheme1}>
+                    Theme 1
+                  </div>
+                  <div id='theme2' onClick={handleClickTheme2}>
+                    Theme 2
+                  </div>
+                  <div id='theme3' onClick={handleClickTheme3}>
+                    Theme 3
+                  </div>
+                </div>
+              </header>
+
+              <div className='res-container' id='res-container'>
+                <div className='display number' id='res'>
+                  {numState ? numState : '0'}
+                </div>
+              </div>
+
+              <div className='allButtonContainer' id='allButtonContainer'>
+                <div className='buttonContainer'>
+                  <div
+                    className='primaryColorButton'
+                    id='num7'
+                    onClick={handleClick7}
+                    value={7}
+                  >
+                    7
+                  </div>
+                  <div
+                    className='primaryColorButton'
+                    id='num8'
+                    onClick={handleClick8}
+                  >
+                    8
+                  </div>
+                  <div
+                    className='primaryColorButton'
+                    id='num9'
+                    onClick={handleClick9}
+                  >
+                    9
+                  </div>
+                  <div id='del' onClick={HandleClickDel}>
+                    del
+                  </div>
+                </div>
+                <div className='buttonContainer'>
+                  <div
+                    className='primaryColorButton'
+                    id='num4'
+                    onClick={handleClick4}
+                  >
+                    4
+                  </div>
+                  <div
+                    className='primaryColorButton'
+                    id='num5'
+                    onClick={handleClick5}
+                  >
+                    5
+                  </div>
+                  <div
+                    className='primaryColorButton'
+                    id='num6'
+                    onClick={handleClick6}
+                  >
+                    6
+                  </div>
+                  <div id='addition' onClick={handleClickAdd}>
+                    +
+                  </div>
+                </div>
+                <div className='buttonContainer'>
+                  <div
+                    className='primaryColorButton'
+                    id='num1'
+                    onClick={handleClick1}
+                  >
+                    1
+                  </div>
+                  <div
+                    className='primaryColorButton'
+                    id='num2'
+                    onClick={handleClick2}
+                  >
+                    2
+                  </div>
+                  <div
+                    className='primaryColorButton'
+                    id='num3'
+                    onClick={handleClick3}
+                  >
+                    3
+                  </div>
+                  <div
+                    className='primaryColorButton'
+                    id='subtraction'
+                    onClick={handleClickSubtraction}
+                  >
+                    -
+                  </div>
+                </div>
+                <div className='buttonContainer'>
+                  <div
+                    className='primaryColorButton'
+                    id='decimal'
+                    onClick={HandleClickDecimal}
+                  >
+                    .
+                  </div>
+                  <div
+                    className='primaryColorButton'
+                    id='num0'
+                    onClick={handleClick0}
+                  >
+                    0
+                  </div>
+                  <div
+                    className='primaryColorButton'
+                    id='division'
+                    onClick={handleClickDivision}
+                  >
+                    /
+                  </div>
+                  <div
+                    className='primaryColorButton'
+                    id='multiplication'
+                    onClick={handleClickMultiply}
+                  >
+                    x
+                  </div>
+                </div>
+                <div className='buttonContainer'>
+                  <div id='reset' onClick={handleClickRes}>
+                    reset
+                  </div>
+                  <div id='equal' onClick={handleClickEqual}>
+                    =
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        );
+      }
+
+      const container = document.getElementById('mydiv');
+      const root = ReactDOM.createRoot(container);
+      root.render(<Calculator />);
+    </script>
+  </body>
+</html>
